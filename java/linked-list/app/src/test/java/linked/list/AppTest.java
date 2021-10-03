@@ -67,5 +67,73 @@ class AppTest {
     assertEquals(linkedList.toString() , "{ F } ->{ S } ->{ G } ->{ H } -> null" , "There is something wrong With Multiple Nodes Insertion");
 
   }
+  @Test
+  void successfullyAddANodeToTheEnd(){
+    LinkedList linkedList = new LinkedList();
+    linkedList.append("M");
+    linkedList.append("N");
+    linkedList.append("D");
+    assertEquals("{ M } ->{ N } ->{ D } -> null",linkedList.toString(),"The D Char should be in the end of the linked list");
 
+  }
+
+  @Test
+  void successfullyAddMultipleNodesToTheEnd (){
+    LinkedList linkedList = new LinkedList();
+    linkedList.append("M");
+    linkedList.append("N");
+    linkedList.append("D");
+    linkedList.append("H");
+    assertEquals("{ M } ->{ N } ->{ D } ->{ H } -> null",linkedList.toString(),"The method should be able to Add Multiple Nodes end of the linked list");
+
+  }
+
+  @Test
+  void insertANodeBefore(){
+    LinkedList linkedList = new LinkedList();
+    linkedList.append("M");
+    linkedList.append("N");
+    linkedList.append("D");
+    linkedList.append("H");
+    linkedList.append("G");
+    linkedList.insertBefore("D","R");
+    assertEquals("{ M } ->{ N } ->{ R } ->{ D } ->{ H } ->{ G } -> null",linkedList.toString(),"R char should be added before D char");
+
+  }
+
+  @Test
+  void insertANodeBeforeTheFirstNode(){
+    LinkedList linkedList = new LinkedList();
+    linkedList.append("M");
+    linkedList.append("N");
+    linkedList.append("D");
+    linkedList.append("H");
+    linkedList.append("G");
+    linkedList.insertBefore("M","R");
+    assertEquals("{ R } ->{ M } ->{ N } ->{ D } ->{ H } ->{ G } -> null",linkedList.toString(),"R char should be added at the beginning of the linked list ");
+  }
+
+  @Test
+  void insertANodeAfterTheFirstNode(){
+    LinkedList linkedList = new LinkedList();
+    linkedList.append("M");
+    linkedList.append("N");
+    linkedList.append("O");
+    linkedList.append("P");
+    linkedList.append("Q");
+    linkedList.insertAfter("M","R");
+    assertEquals("{ M } ->{ R } ->{ N } ->{ O } ->{ P } ->{ Q } -> null",linkedList.toString(),"R char should be after M char");
+  }
+
+  @Test
+  void insertANodeAfterTheLastNode(){
+    LinkedList linkedList = new LinkedList();
+    linkedList.append("M");
+    linkedList.append("N");
+    linkedList.append("O");
+    linkedList.append("P");
+    linkedList.append("G");
+    linkedList.insertAfter("G","R");
+    assertEquals("{ M } ->{ N } ->{ O } ->{ P } ->{ G } ->{ R } -> null",linkedList.toString(),"R char should be after G char");
+  }
 }

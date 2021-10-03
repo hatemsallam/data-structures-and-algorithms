@@ -1,11 +1,30 @@
-# Singly Linked List
-<!-- Short summary or background information -->
+# Challenge Summary
+# Write the following methods for the Linked List class:
 
-## Challenge
-<!-- Description of the challenge -->
+## append
+
+- arguments: new value
+- adds a new node with the given value to the end of the list
+
+## insert before
+
+- arguments: value, new value
+- adds a new node with the given new value immediately before the first node that has the value specified
+
+## insert after
+
+- arguments: value, new value
+- adds a new node with the given new value immediately after the first node that has the value specified
+
+## Whiteboard Process
+
+![](linked-list-insertions.png)
+
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
-## API
-<!-- Description of each method publicly available to your Linked List -->
+### linked list approach 
+
+- Time complexity O(1)
+- Space O(n)
+
