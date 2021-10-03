@@ -11,15 +11,24 @@ public class App {
     public static void main(String[] args) {
 
         LinkedList linkedList = new LinkedList();
-        linkedList.insert("a");
-      linkedList.insert("b");
-      linkedList.insert("c");
-      linkedList.insert("d");
-      linkedList.insert("e");
+//        linkedList.insert("a");
+//      linkedList.insert("b");
+//      linkedList.insert("c");
+//      linkedList.insert("d");
+//      linkedList.insert("e");
+//
+//
+//      System.out.println(linkedList.include("c"));
+//      System.out.println(linkedList.include("x"));
+//
+//      linkedList.append("R");
+//      linkedList.insertBefore("c","C");
+//
+//      linkedList.insertAfter("b","B");
 
-
-      System.out.println(linkedList.include("c"));
-      System.out.println(linkedList.include("x"));
+      linkedList.append("M");
+      linkedList.append("N");
+      linkedList.append("D");
 
       System.out.println(linkedList);
 

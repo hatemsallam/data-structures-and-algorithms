@@ -22,5 +22,7 @@ To run your tests
 
 | Code Challenge      | Link |
 | ----------- | ----------- |
-| array-reverse     | Title       |
-| Code challenge 2   | Text        |
+| reverseArray     | [reverseArray link](java/array-reverse/Readme.md)       |
+| insertShiftArray      | [insertShiftArray link](java/array-insert-shift/Readme.md)       |
+| array-binary-search      | [array-binary-search link](java/array-binary-search/Readme.md)       |
+| linked-list     | [linked-list link](java/linked-list/Readme.md)       |
