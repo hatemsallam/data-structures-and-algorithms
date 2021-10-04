@@ -48,4 +48,49 @@ public class LinkedList {
     return head;
   }
 
+  public int size () {
+    Node current;
+    int count=0;
+    current=head;
+    while(current != null){
+      count++;
+
+      current=current.getNext();
+    }
+    return count;
+  }
+
+  public String kth(int k) {
+    int length = size();
+    if((k<length)&&(k>=0)){
+      Node search = head;
+      while (length-->=0) {
+        if(length ==k) {
+          return search.getData();
+        }
+        search=search.getNext();
+      }
+
+    } else if(k<0) {
+      try {
+        throw new Exception("Negative Not accept");
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    } else if (k >=length) {
+      try {
+        throw new Exception("Out of Range");
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+    return "error";
+  }
+
+
+
+
+
+
 }
+
