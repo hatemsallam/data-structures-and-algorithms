@@ -20,9 +20,10 @@ To run your tests
 
 ### 401 Data Structures, Code Challenges
 
-| Code Challenge      | Link |
+| CodeChallenge      | Link |
 | ----------- | ----------- |
-| reverseArray     | [reverseArray link](java/array-reverse/Readme.md)       |
-| insertShiftArray      | [insertShiftArray link](java/array-insert-shift/Readme.md)       |
-| array-binary-search      | [array-binary-search link](java/array-binary-search/Readme.md)       |
+
+| array-reverse      | [array-reverse link](java/array-reverse/Readme.md)       |
+| array-insert-shift      | [array-insert-shift link](java/array-insert-shift/Readme.md)       |
+| array-binary-search     | [array-binary-search link](java/array-binary-search/Readme.md)       |
 | linked-list     | [linked-list link](java/linked-list/Readme.md)       |

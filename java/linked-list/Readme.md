@@ -1,30 +1,20 @@
-# Challenge Summary
-# Write the following methods for the Linked List class:
 
-## append
 
-- arguments: new value
-- adds a new node with the given value to the end of the list
+# Challenge
+write function return the element from linked list based on index , the index will start from the end
 
-## insert before
 
-- arguments: value, new value
-- adds a new node with the given new value immediately before the first node that has the value specified
 
-## insert after
 
-- arguments: value, new value
-- adds a new node with the given new value immediately after the first node that has the value specified
+## WhiteBoard:
+![](linked-list-kth.png)
 
-## Whiteboard Process
 
-![](linked-list-insertions.png)
+
 
 
 ## Approach & Efficiency
+-get the size of linked-list -check if the if K lest than size and biggest than 0; -search node will move over item until become equal zero. during iterator each time check if size equal K then return the value of that index
 
-### linked list approach 
 
-- Time complexity O(1)
-- Space O(n)
 
