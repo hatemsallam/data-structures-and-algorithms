@@ -1,20 +1,28 @@
 
 
 # Challenge
-write function return the element from linked list based on index , the index will start from the end
-
+Write a function called zip lists that takes 2 arguments 2 linked lists and
+return Linked List, zipped as :
+Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
 
 
 
 ## WhiteBoard:
+![](linked-list-insertions.png)
+
 ![](linked-list-kth.png)
+
+![](linked-list-zip.png)
+
 
 
 
 
 
 ## Approach & Efficiency
--get the size of linked-list -check if the if K lest than size and biggest than 0; -search node will move over item until become equal zero. during iterator each time check if size equal K then return the value of that index
+
+- Time Complexity O(n)
+- space O(1)
 
 
 

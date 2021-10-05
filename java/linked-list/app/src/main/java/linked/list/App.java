@@ -8,9 +8,11 @@ public class App {
         return "Hello World!";
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        LinkedList linkedList = new LinkedList();
+        LinkedList list1 = new LinkedList();
+      LinkedList list2 = new LinkedList();
+      LinkedList list3 = new LinkedList();
 //        linkedList.insert("a");
 //      linkedList.insert("b");
 //      linkedList.insert("c");
@@ -26,11 +28,22 @@ public class App {
 //
 //      linkedList.insertAfter("b","B");
 
-      linkedList.append("M");
-      linkedList.append("N");
-      linkedList.append("D");
+      list1.append("A");
+      list1.append("B");
+      list1.append("C");
+      list1.append("D");
+      list1.append("E");
+      list1.append("F");
 
-      System.out.println(linkedList);
+      list2.append("1");
+      list2.append("2");
+      list2.append("3");
+      list2.append("4");
+
+      System.out.println(list3.zipLists(list1,list2));
+
+
+
 
     }
 
