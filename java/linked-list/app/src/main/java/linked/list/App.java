@@ -13,6 +13,7 @@ public class App {
         LinkedList list1 = new LinkedList();
       LinkedList list2 = new LinkedList();
       LinkedList list3 = new LinkedList();
+      LinkedList list4= new LinkedList();
 //        linkedList.insert("a");
 //      linkedList.insert("b");
 //      linkedList.insert("c");
@@ -40,9 +41,12 @@ public class App {
       list2.append("3");
       list2.append("4");
 
-      System.out.println(list3.zipLists(list1,list2));
 
 
+
+//      System.out.println(list3.zipLists(list1,list2));
+      System.out.println(list2);
+      System.out.println(list4.listReverser(list2));
 
 
     }
