@@ -5,24 +5,24 @@ public class LinkedList {
   private Node head;
 
   public LinkedList() {
-    head=null;
+    head = null;
   }
 
-  public void insert( String value) {
+  public void insert(String value) {
     Node newNode = new Node(value);
-    if (head== null) {
+    if (head == null) {
       head = newNode;
     } else {
       newNode.setNext(head);
-      head= newNode;
+      head = newNode;
     }
   }
 
 
   public Boolean include(String value) {
     Node current = head;
-    while (current != null ) {
-      if(current.getData()==value) {
+    while (current != null) {
+      if (current.getData() == value) {
         return true;
       }
       current = current.getNext();
@@ -31,17 +31,16 @@ public class LinkedList {
   }
 
 
-
   @Override
   public String toString() {
-   Node current = head;
-   String sortedList = "" ;
-   while (current!=null) {
-     sortedList = sortedList + "{ " + current.getData() + " } ->";
-     current = current.getNext();
-   }
-    sortedList= sortedList + " null";
-   return sortedList;
+    Node current = head;
+    String sortedList = "";
+    while (current != null) {
+      sortedList = sortedList + "{ " + current.getData() + " } ->";
+      current = current.getNext();
+    }
+    sortedList = sortedList + " null";
+    return sortedList;
   }
 
   public Node getHead() {
@@ -49,36 +48,36 @@ public class LinkedList {
   }
 
 
-  public int size () {
+  public int size() {
     Node current;
-    int count=0;
-    current=head;
-    while(current != null){
+    int count = 0;
+    current = head;
+    while (current != null) {
       count++;
 
-      current=current.getNext();
+      current = current.getNext();
     }
     return count;
   }
 
   public String kth(int k) {
     int length = size();
-    if((k<length)&&(k>=0)){
+    if ((k < length) && (k >= 0)) {
       Node search = head;
-      while (length-->=0) {
-        if(length ==k) {
+      while (length-- >= 0) {
+        if (length == k) {
           return search.getData();
         }
-        search=search.getNext();
+        search = search.getNext();
       }
 
-    } else if(k<0) {
+    } else if (k < 0) {
       try {
         throw new Exception("Negative Not accept");
       } catch (Exception e) {
         e.printStackTrace();
       }
-    } else if (k >=length) {
+    } else if (k >= length) {
       try {
         throw new Exception("Out of Range");
       } catch (Exception e) {
@@ -89,15 +88,10 @@ public class LinkedList {
   }
 
 
-
-
-
-
-
-  public void append (String value) {
+  public void append(String value) {
     Node newNode = new Node(value);
 
-    if(head == null) {
+    if (head == null) {
       head = newNode;
     } else {
       Node current = head;
@@ -108,7 +102,7 @@ public class LinkedList {
     }
   }
 
-  public void insertBefore (String value, String newValue) {
+  public void insertBefore(String value, String newValue) {
     Node newNode = new Node(newValue);
     if (head == null)
       head = newNode;
@@ -128,7 +122,7 @@ public class LinkedList {
     }
   }
 
-  public void insertAfter (String value, String newValue) {
+  public void insertAfter(String value, String newValue) {
     Node newNode = new Node(newValue);
     Node current = head;
     while (current != null) {
@@ -199,5 +193,23 @@ public class LinkedList {
       return true;
     }
   }
+
+  public LinkedList listReverser(LinkedList list1) {
+    Node current = list1.head;
+    LinkedList list2 = new LinkedList();
+    if (list1.size() == 0) {
+      System.out.println("(\"You can't reverse an empty list\")");
+
+    } else {
+
+    while (current != null) {
+      list2.insert(current.getData());
+      current=current.getNext();
+    } }
+    return list2;
+
+
+  }
+
 }
 
