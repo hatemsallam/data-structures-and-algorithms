@@ -4,11 +4,109 @@
 package stack.and.queue;
 
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
-    }
+
+
+  @Test void pushToStackTest(){
+    Stack stackTest = new Stack();
+    stackTest.push("H");
+    stackTest.push("A");
+    assertNotEquals("H", stackTest.toString());
+  }
+
+  @Test
+  public void popStackTest(){
+    Stack stackTest = new Stack();
+    stackTest.push("H");
+    stackTest.push("A");
+    stackTest.push("T");
+
+    stackTest.pop();
+
+    assertNotEquals("T", stackTest.toString());
+  }
+
+  @Test
+  public void emptyStackTest() throws IllegalArgumentException {
+    Stack stackTest = new Stack();
+    stackTest.push("H");
+    stackTest.push("A");
+    stackTest.push("T");
+    stackTest.pop();
+    stackTest.pop();
+    stackTest.pop();
+
+    assertNotEquals("Stack { Null }",stackTest.toString());
+    assertTrue(stackTest.isEmpty());
+    //      assertEquals(IllegalArgumentException.class,stackTest.pop());
+//      assertNull(stackTest.peek());
+  }
+
+  @Test
+  public void peekStackTest(){
+    Stack stackTest = new Stack();
+    stackTest.push("H");
+    stackTest.push("A");
+    stackTest.push("T");
+
+    assertEquals("T",stackTest.peek());
+    stackTest.pop();
+    assertEquals("A",stackTest.peek());
+  }
+
+  @Test
+  public void enqueueToQueueTest(){
+    Queue queueTest = new Queue();
+    queueTest.enqueue("H");
+    queueTest.enqueue("A");
+    queueTest.enqueue("T");
+    assertEquals("Queue{front=Node{data='H', next=Node{data='A', next=Node{data='T', next=null}}}, rear=Node{data='T', next=null}}",queueTest.toString());
+  }
+
+  @Test
+  public void dequeueFromQueueTest(){
+    Queue queueTest = new Queue();
+    queueTest.enqueue("H");
+    queueTest.enqueue("A");
+    queueTest.enqueue("T");
+
+    queueTest.dequeue();
+    assertEquals("Queue{front=Node{data='H', next=Node{data='A', next=null}}, rear=Node{data='T', next=null}}",queueTest.toString());
+  }
+
+  // (expected = IllegalArgumentException.class)
+
+  @Test
+  public void emptyQueueTest(){
+    Queue queueTest = new Queue();
+    queueTest.enqueue("H");
+    queueTest.enqueue("A");
+    queueTest.enqueue("T");
+
+    queueTest.dequeue();
+    queueTest.dequeue();
+    queueTest.dequeue();
+    assertTrue(queueTest.isEmpty());
+    assertEquals("Queue{front=null, rear=Node{data='T', next=null}}",queueTest.toString());
+    assertEquals( "empty",queueTest.dequeue());
+    //  assertNull(queueTest.peek());
+  }
+
+  @Test
+  public void peekQueueTest(){
+    Queue queueTest = new Queue();
+    queueTest.enqueue("H");
+    queueTest.enqueue("A");
+    queueTest.enqueue("T");
+
+    assertEquals( java.util.Optional.of("H"), java.util.Optional.ofNullable(queueTest.peek()));
+    queueTest.dequeue();
+    assertEquals(java.util.Optional.of("A"),java.util.Optional.ofNullable(queueTest.peek()));
+  }
+
 }
