@@ -109,4 +109,26 @@ class AppTest {
     assertEquals(java.util.Optional.of("A"),java.util.Optional.ofNullable(queueTest.peek()));
   }
 
+
+  @Test
+
+  public void enqueueDequeueTest() {
+    PseudoQueue queueTest = new PseudoQueue();
+    queueTest.enqueue("1");
+    queueTest.enqueue("2");
+    queueTest.enqueue("3");
+
+    assertEquals("1",queueTest.dequeue());
+  }
+
+
+  @ Test
+  public void enqueueDequeueEdgeCaseTest() {
+    PseudoQueue queueTest = new PseudoQueue();
+    assertEquals("queue is empty",queueTest.dequeue());
+  }
+
+
+
+
 }
