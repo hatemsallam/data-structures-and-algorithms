@@ -1,55 +1,64 @@
 package stack.and.queue;
 
-public class Stack {
-  Node top;
+public class Stack<G> {
+  private int idx;
+  private Node<G> top;
 
+  public Stack() {
+    this.idx = -1;
+  }
 
-public Stack() {
+  public int getIdx() {
+    return idx;
+  }
+  public void push (G data) {
+    Node newNode = new Node(data);
+    if(top == null) {
+      top = newNode;
+      top.next = null;
+    }
 
-}
+    else {
+      newNode.next = top;
+      top = newNode;
+    }
+    idx++;
+  }
+  public G pop () {
+    if (top == null) {
+      throw new NullPointerException();
+    }
+    Node<G> popped = top;
+    top = top.next;
+    idx--;
+    return popped.data;
+  }
+
+  public G peek () {
+    if(idx < 0) {
+      throw new NullPointerException();
+    }
+    return top.data;
+
+  }
 
   public boolean isEmpty() {
-    return (top==null);
-  }
-
-
-
-
-
-
-  public void push(String data) {
-    if(isEmpty()) {
-      Node newNode = new Node(data);
-      top = newNode;
-    } else {
-      Node newNode = new Node(data);
-      newNode.setNext(top);
-      top = newNode;
+    if(idx >= 0){
+      return false;
     }
+    return true;
   }
-
-  public String pop() {
-    if(isEmpty()) {
-      return "stack is empty";
-    } else {
-      String data = top.getData();
-     top=top.getNext();
-      return data;
+  @Override
+  public String toString() {
+    String stackData = "";
+    Node<G> trav = top;
+    while (trav != null) {
+      stackData += trav.data + " -> ";
+      trav = trav.next;
     }
+    stackData += "Null";
+    return stackData;
   }
-
-
-  public String peek() {
-    if(isEmpty()) {
-      return "stack is empty";
-    } else {
-      return top.getData();
-    }
-  }
-
-
-
 }
-
 
 

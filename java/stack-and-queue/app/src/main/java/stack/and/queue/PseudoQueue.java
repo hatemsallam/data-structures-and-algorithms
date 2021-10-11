@@ -2,34 +2,54 @@ package stack.and.queue;
 
 import interfaces.Queue;
 
-public class PseudoQueue implements Queue {
+import java.util.NoSuchElementException;
 
-  Stack stack1;
-  Stack stack2;
+import java.util.NoSuchElementException;
+
+public class PseudoQueue<G> implements Queue{
+  public Stack<G> stack;
+  public Stack<G> stack2;
 
   public PseudoQueue() {
-    stack1 = new Stack();
-    stack2 = new Stack();
+    this.stack = new Stack<>();
+    this.stack2 = new Stack<>();
   }
 
   @Override
-  public void enqueue(String value) {
-stack1.push(value);
-  }
+  public void enqueue(Object data) {
+    while (!stack.isEmpty())
+    {
+      stack2.push(stack.pop());
+    }
 
-  @Override
-  public String dequeue() {
-    if (stack1.isEmpty()){
-      return "queue is empty";
-    } else {
-      while (!stack1.isEmpty()) {
-        stack2.push(stack1.pop());
-      }
-      String data = stack2.pop();
-      while (!stack2.isEmpty()) {
-        stack1.push(stack2.pop());
-      }
-      return data;
+    stack.push((G) data);
+
+    while (!stack2.isEmpty())
+    {
+      stack.push(stack2.pop());
     }
   }
+
+  @Override
+  public G dequeue() {
+    if (stack.isEmpty())
+    {
+      System.out.println("Queue is Empty");
+      throw new NullPointerException();
+    }
+
+    G data = stack.peek();
+    stack.pop();
+    return data;
+  }
+
+
+  @Override
+  public String toString() {
+    return "PseudoQueue{" +
+      "stack=\n" + stack +
+      ", stack2=\n" + stack2 +
+      '}';
+  }
 }
+

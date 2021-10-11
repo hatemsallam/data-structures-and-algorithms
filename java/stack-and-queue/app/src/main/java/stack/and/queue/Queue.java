@@ -1,48 +1,70 @@
 package stack.and.queue;
 
-public class Queue {
-  Node front;
-  Node rear;
+public class Queue<G> {
+  private Node<G> front;
+  private Node<G> rear;
+  private int idx;
 
-  public Queue(){
+  public Queue() {
+    this.idx = -1;
+  }
 
+  public void enqueue(G data) {
+    Node<G> newNode = new Node<>(data);
+    if(rear == null) {
+      front = rear = newNode;
+      idx++;
+      return;
+    }
+
+    rear.next = newNode;
+    rear = newNode;
+    idx++;
+  }
+
+  public Node<G> dequeue() {
+    if (idx < 0 ) {
+      throw new NullPointerException();
+    }
+    Node<G> temp = front;
+    front = front.next;
+    idx--;
+    if (front == null) {
+      rear = null;
+    }
+    return front;
+  }
+
+  public int getIdx() {
+    return idx;
+  }
+
+  public G peek() {
+    if (idx < 0) {
+      throw new NullPointerException();
+    }
+
+    return front.data;
   }
 
   public boolean isEmpty() {
-    return(front == null);
-  }
-
-
-  public void enqueue(String data) {
-    if (isEmpty()) {
-      Node newNode = new Node(data);
-      front = newNode;
-      rear = newNode;
-    } else {
-      Node newNode = new Node(data);
-      rear.setNext(newNode);
-      rear = newNode;
+    if (idx < 0) {
+      return true;
     }
+    return false;
   }
-
-
-  public String dequeue() {
-    if(isEmpty()) {
-      return "queue is empty";
-    } else {
-      String data = front.getData();
-      front=front.getNext();
-      return data;
+  @Override
+  public String toString() {
+    String queue = "";
+    Node<G> trav = front;
+    while (trav != null) {
+      queue += trav.data + "->";
+      trav = trav.next;
     }
-  }
+    queue += "Null";
 
-public String peek() {
-  if(isEmpty()) {
-    return "queue is empty";
-  } else {
-    return front.getData();
+    return  queue;
   }
-}
 
 
 }
