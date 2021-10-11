@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface Queue {
-  public void enqueue(String value);
-  public String dequeue();
+public interface Queue<G> {
+  void enqueue(G data);
+  G dequeue();
 }
