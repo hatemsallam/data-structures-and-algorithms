@@ -21,6 +21,15 @@ Create an AnimalShelter class to hold two queues of type Animal that adds to the
 ![](stack-queue-animal-shelter.jpg)
 
 
+## challenge 13
+Write a function called validate brackets that takes a string value contains brackets, representing whether or not the brackets in the string are balanced by returning a Boolean value.
+
+
+## Whiteboard Process for challenge 13
+![](stack-queue-brackets.jpg)
+
+
+
 
 
 

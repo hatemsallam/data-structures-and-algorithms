@@ -128,7 +128,15 @@ class AppTest {
     assertEquals("queue is empty",queueTest.dequeue());
   }
 
-
-
+@Test
+  public void checkBracketsTest() {
+    ValidateBrackets validateBrackets = new ValidateBrackets();
+    assertEquals(true,validateBrackets.check("()"));
+}
+  @Test
+  public void checkBracketsTest1() {
+    ValidateBrackets validateBrackets = new ValidateBrackets();
+    assertEquals(false,validateBrackets.check(""));
+  }
 
 }
