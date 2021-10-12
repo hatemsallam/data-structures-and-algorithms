@@ -49,13 +49,18 @@ public class App {
 //      System.out.println(queue1.dequeue());
 
 
-      AnimalShelter shelter = new AnimalShelter();
-      shelter.enqueue(new Animal("cat"));
-      shelter.enqueue(new Animal("dog"));
-      shelter.enqueue(new Animal("cat"));
-      shelter.enqueue(new Animal("dog"));
+//      AnimalShelter shelter = new AnimalShelter();
+//      shelter.enqueue(new Animal("cat"));
+//      shelter.enqueue(new Animal("dog"));
+//      shelter.enqueue(new Animal("cat"));
+//      shelter.enqueue(new Animal("dog"));
+//
+//      System.out.println(shelter.getDogs());
 
-      System.out.println(shelter.getDogs());
+
+ValidateBrackets validateBrackets = new ValidateBrackets();
+
+      System.out.println(validateBrackets.check("()"));
 
 
 
