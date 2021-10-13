@@ -58,13 +58,23 @@ public class App {
 //      System.out.println(shelter.getDogs());
 
 
-ValidateBrackets validateBrackets = new ValidateBrackets();
+//ValidateBrackets validateBrackets = new ValidateBrackets();
+//
+//      System.out.println(validateBrackets.check("()"));
 
-      System.out.println(validateBrackets.check("()"));
+MaxValueStack stack = new MaxValueStack();
 
+stack.push(5);
+stack.push(10);
+stack.push(15);
+stack.push(2);
 
+      System.out.println(stack.getMax());
 
+stack.pop();
+stack.pop();
 
+      System.out.println(stack.getMax());
 
 
     }

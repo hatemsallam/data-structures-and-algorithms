@@ -139,4 +139,21 @@ class AppTest {
     assertEquals(false,validateBrackets.check(""));
   }
 
+
+  @Test
+  public void GetMaxTest() {
+    MaxValueStack stack = new MaxValueStack();
+    assertEquals(0,stack.getMax());
+    stack.push(10);
+    stack.push(30);
+    stack.push(40);
+    stack.push(20);
+    assertEquals(40,stack.getMax());
+    stack.pop();
+    stack.pop();
+    assertEquals(30,stack.getMax());
+  }
+
+
+
 }
