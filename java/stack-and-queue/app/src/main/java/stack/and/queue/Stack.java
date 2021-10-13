@@ -48,6 +48,10 @@ public class Stack<G> {
     }
     return true;
   }
+
+
+
+
   @Override
   public String toString() {
     String stackData = "";
