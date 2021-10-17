@@ -35,7 +35,29 @@ class AppTest {
 }
 
 
+@Test
+  void getMaxTest() throws Exception {
+  BinarySearchTree newTree = new BinarySearchTree();
+  newTree.add(50);
+  newTree.add(60);
+  newTree.add(40);
+  assertEquals(60,newTree.getMax());
+}
 
+  @Test
+  void getMaxTest2() throws Exception {
+    BinarySearchTree newTree = new BinarySearchTree();
+    newTree.add(50);
+    assertEquals(50,newTree.getMax());
+  }
 
-
+  @Test
+  void getMaxTest3()  {
+    BinarySearchTree newTree = new BinarySearchTree();
+    try {
+      System.out.println(newTree.getMax());
+    } catch (Exception e) {
+      assertEquals("Tree is empty", e.getMessage());
+    }
+  }
 }

@@ -56,4 +56,23 @@ if (data.compareTo(root.getData())==0) {
     }
   }
 
+
+  public T getMax() throws Exception{
+    if (root==null) {
+      throw new Exception("Tree is empty");
+    } else {
+      return getMaxHelper(root);
+    }
+  }
+
+  private T getMaxHelper(BinaryNode<T> root ) {
+if (root.getRightNode()==null) {
+  return root.getData();
+} else {
+  return getMaxHelper(root.getRightNode());
+}
+  }
+
+
+
 }
