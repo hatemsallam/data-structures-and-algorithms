@@ -8,7 +8,7 @@ public class App {
         return "Hello World!";
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
       BinarySearchTree<Integer> newTree = new BinarySearchTree<>();
 
@@ -18,8 +18,10 @@ public class App {
       newTree.add(70);
       newTree.add(20);
 
-      System.out.println(newTree.contain(80));
-      System.out.println(newTree.contain(70));
+//      System.out.println(newTree.contain(80));
+//      System.out.println(newTree.contain(70));
+
+      System.out.println(newTree.getMax());
 
 
 
