@@ -3,6 +3,8 @@
  */
 package tree;
 
+import java.util.Arrays;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -22,7 +24,7 @@ public class App {
 //      System.out.println(newTree.contain(70));
 
       System.out.println(newTree.getMax());
-
+      System.out.println(newTree.breadthFirst(newTree));
 
 
 
