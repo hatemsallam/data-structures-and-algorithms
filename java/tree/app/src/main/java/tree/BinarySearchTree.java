@@ -78,26 +78,55 @@ if (root.getRightNode()==null) {
 
 
 
-  public List<T> breadthFirst(BinarySearchTree<T> tree){
+  public List<Integer> breadthFirst(BinarySearchTree<T> tree){
     if(root==null) {return null;}
     Queue<BinaryNode<T>>queue = new Queue<>();
-    List<T> list = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
     queue.enqueue(root);
-    list.add((T) root.getData());
+    list.add((Integer) root.getData());
     while (!queue.isEmpty()){
       try {
         BinaryNode<T> node = queue.dequeue();
         if(node.getLeftNode()!=null){
           queue.enqueue(node.getLeftNode());
-          list.add((T) node.getLeftNode().getData());
+          list.add((Integer) node.getLeftNode().getData());
         }if(node.getRightNode()!=null){
           queue.enqueue(node.getRightNode());
-          list.add((T) node.getRightNode().getData());
+          list.add((Integer) node.getRightNode().getData());
         }
       }catch (Exception e){e.printStackTrace();}
     }
     return list;
   }
+
+public  int sumOfOdds() {
+    int sum = 0 ;
+  if(root==null) {return 0;}
+  Queue<BinaryNode<T>>queue = new Queue<>();
+  List<Integer> list = new ArrayList<>();
+  queue.enqueue(root);
+  list.add((Integer) root.getData());
+  while (!queue.isEmpty()){
+    try {
+      BinaryNode<T> node = queue.dequeue();
+      if(node.getLeftNode()!=null){
+        queue.enqueue(node.getLeftNode());
+        list.add((Integer) node.getLeftNode().getData());
+      }if(node.getRightNode()!=null){
+        queue.enqueue(node.getRightNode());
+        list.add((Integer) node.getRightNode().getData());
+      }
+
+    }catch (Exception e){e.printStackTrace();}
+  }
+  for(int i =0 ;i<list.size();i++) {
+    if (list.get(i) %2!=0) {
+      sum+=list.get(i);
+    }
+  }
+  return sum;
+
+}
 
 
 
