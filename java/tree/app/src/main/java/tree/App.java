@@ -15,18 +15,18 @@ public class App {
       BinarySearchTree<Integer> newTree = new BinarySearchTree<>();
 
       newTree.add(50);
-      newTree.add(40);
+      newTree.add(45);
       newTree.add(60);
-      newTree.add(70);
-      newTree.add(20);
+      newTree.add(75);
+      newTree.add(21);
 
 //      System.out.println(newTree.contain(80));
 //      System.out.println(newTree.contain(70));
 
-      System.out.println(newTree.getMax());
-      System.out.println(newTree.breadthFirst(newTree));
+//      System.out.println(newTree.getMax());
+//      System.out.println(newTree.breadthFirst(newTree));
 
-
+      System.out.println(newTree.sumOfOdds());
 
     }
 
