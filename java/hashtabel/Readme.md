@@ -29,4 +29,11 @@ Write a function that accepted a string parameter which  finds the first word to
 ![](code-challeng-31.png)
 
 
+# hashmap-tree-intersection challenge 32
+
+Create a method that takes two binary trees as a parameter and return an array of nodes that are similar in two trees.
+
+## Whiteboard Process
+
+![hashmap-tree-intersection](code-challeng-32.png)
 
