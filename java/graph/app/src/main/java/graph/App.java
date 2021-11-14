@@ -34,5 +34,32 @@ public class App {
 
       System.out.println();
       System.out.println(graph.size());
+
+      //        <<< Code Challenge 36 >>>
+
+      Graph graph1 = new Graph();
+
+      graph1.addVertex("Hatem");
+      graph1.addVertex("Tareq");
+      graph1.addVertex("Doaa");
+      graph1.addVertex("Mohammad");
+      graph1.addVertex("Osaid");
+      graph1.addVertex("Naim");
+
+      graph1.addEdge("Hatem", "Tareq");
+      graph1.addEdge("Tareq", "Doaa");
+      graph1.addEdge("Tareq", "Mohammad");
+      graph1.addEdge("Doaa", "Osaid");
+      graph1.addEdge("Doaa", "Naim");
+      graph1.addEdge("Doaa", "Mohammad");
+      graph1.addEdge("Mohammad", "Naim");
+      graph1.addEdge("Osaid", "Naim");
+
+
+      System.out.println(graph1.breadthTraverse( "Hatem"));
+
+
+
+
     }
 }
