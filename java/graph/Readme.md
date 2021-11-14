@@ -18,3 +18,23 @@ Class Graph :
   - getNodes() : returns All nodes in a graph.
   - getNeighbours(T node) : returns all neighbours of a specific graph.
   - getSize() : returns the size of the graph.
+
+
+
+# Graph Breadth First challenge 36
+
+Create a static method which returns a Set of the Graph vertices in their breadth from a specified root.
+
+## Challenge
+
+Create a method that take a vertex as a parameter as a start point and return a collection of vertices in the order they were visited.
+
+## Whiteboard Process
+
+![graph-breadth-first](breadthfirst-graph.jpg)
+
+## Approach and Efficiency
+
+* Time: O(n^2)
+
+* Space: O(n)
