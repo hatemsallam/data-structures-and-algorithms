@@ -1,47 +1,50 @@
 package graph;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+
 
 public class Graph<T> {
-  public final Map<T , Map<T , Integer>>nodes = new HashMap<>();
+  private final Map<Vertex, List<Vertex>> adjVertices;
 
-  public T addNode(T value){
-    nodes.put(value , new HashMap<>());
-
-    return (T) nodes.keySet().toArray()[this.nodes.size()-1];
+  public Graph() {
+    adjVertices = new HashMap<>();
   }
 
-  public void addEdge(T node1 , T node2 , int weight){
-
-    if (!nodes.containsKey(node1))
-      addNode(node1);
-
-    if (!nodes.containsKey(node2))
-      addNode(node2);
-
-    nodes.get(node1).put(node2 , weight);
-    nodes.get(node2).put(node1 , weight);
+  void addVertex(String data) {
+    Vertex vertex = new Vertex(data);
+    adjVertices.putIfAbsent(vertex, new ArrayList<>());
   }
 
-  public Set<T> getNodes(){
-    return nodes.keySet();
+  void addEdge(String data1, String data2) {
+    Vertex vertex1 = new Vertex(data1);
+    Vertex vertex2 = new Vertex(data2);
+
+    adjVertices.get(vertex1).add(vertex2);
+    adjVertices.get(vertex2).add(vertex1);
   }
 
-  public Set<T> getNeighbours(T node) {
-    return nodes.get(node).keySet();
+
+  String printGraph() {
+    StringBuilder stringBuilder = new StringBuilder();
+    for (Vertex vertex : adjVertices.keySet()) {
+      stringBuilder.append(vertex);
+      stringBuilder.append(adjVertices.get(vertex));
+    }
+
+    return stringBuilder.toString();
   }
 
-  public int getSize(){
-    return this.nodes.size();
+  int size() {
+    return adjVertices.size();
   }
 
-  @Override
-  public String toString() {
-    return "Graph{" +
-      "nodes=" + nodes +
-      ", size=" + this.nodes.size() +
-      '}';
+  public Set<Vertex> getVertices(){
+    return adjVertices.keySet();
+  }
+
+
+
+  public List<Vertex> getNeighbors(String data) {
+    return adjVertices.get(new Vertex(data));
   }
 }
