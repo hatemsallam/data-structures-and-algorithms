@@ -9,101 +9,53 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-  Graph<Integer> testGraph;
-  @BeforeEach
-  public void init(){
-    testGraph = new Graph<>();
+  @Test
+  public void addVertex(){
+
+    Graph graph = new Graph();
+
+    graph.addVertex("Hatem");
+    graph.addVertex("Tareq");
+
+    assertNotNull(graph.getVertices());
+    assertEquals(2,graph.size());
   }
 
-    /*
-    Add node test
-     */
-
   @Test
-  public void testAddNode(){
-    testGraph.addNode(15);
-    Assertions.assertEquals(1 , testGraph.getNodes().size());
+  public void addEdge(){
+
+    Graph graph = new Graph();
+
+    graph.addVertex("Hatem");
+    graph.addVertex("Tareq");
+    graph.addEdge("Hatem", "Tareq");
+
+    assertEquals("Vertex{label='Hatem', weight=0}[Vertex{label='Tareq', weight=0}]Vertex{label='Tareq', weight=0}[Vertex{label='Hatem', weight=0}]", graph.printGraph());
   }
 
-    /*
-    Test Add edge
-     */
-
   @Test
-  public void testAddEdge(){
-    testGraph.addNode(10);
-    testGraph.addNode(20);
-    testGraph.addEdge(10,20 ,5);
-    Assertions.assertEquals(1 , testGraph.getNeighbours(10).size());
-    Assertions.assertEquals(1 , testGraph.getNeighbours(20).size());
+  public void vertexNeighbors(){
+
+    Graph graph = new Graph();
+
+    graph.addVertex("Hatem");
+    graph.addVertex("Tareq");
+    graph.addVertex("Doaa");
+    graph.addVertex("Mohammad");
+    graph.addEdge("Hatem", "Doaa");
+    graph.addEdge("Hatem", "Tareq");
+    graph.addEdge("Mohammad", "Tareq");
+
+    assertEquals("[Vertex{label='Doaa', weight=0}, Vertex{label='Tareq', weight=0}]",graph.getNeighbors("Hatem").toString());
+    assertEquals("[Vertex{label='Tareq', weight=0}]", graph.getNeighbors("Mohammad").toString());
 
   }
 
-  /*
-  test retrieve all nodes
-   */
   @Test
-  public void testGetAllNodes(){
-    testGraph.addNode(10);
-    testGraph.addNode(20);
-    Assertions.assertEquals(2 , testGraph.getNodes().size());
-  }
+  public void emptyGraph(){
 
-    /*
-    Test retrieving neighbours
-     */
-
-  @Test
-  public void testGetNeighbours(){
-    testGraph.addNode(10);
-    testGraph.addNode(20);
-    testGraph.addEdge(10 , 20 , 10);
-    Assertions.assertEquals(1 , testGraph.getNeighbours(10).size());
-  }
-
-    /*
-        test weight
-     */
-
-  @Test
-  public void testWeight(){
-    testGraph.addNode(10);
-    testGraph.addNode(20);
-    testGraph.addEdge(10 , 20 , 5);
-    Assertions.assertEquals(5 , testGraph.nodes.get(10).get(20));
-  }
-
-    /*
-    Test on node
-     */
-
-  @Test
-  public void testOneNodeGraph(){
-    testGraph.addNode(12);
-    testGraph.addEdge(12 , 12 , 1);
-    Assertions.assertNotNull(testGraph);
-  }
-
-    /*
-    Test size
-     */
-
-  @Test
-  public void testSize(){
-    testGraph.addNode(151);
-    testGraph.addNode(154);
-    testGraph.addNode(153);
-    testGraph.addNode(152);
-    testGraph.addEdge(151 ,  152 , 3);
-    Assertions.assertEquals(4 , testGraph.getSize());
-  }
-
-    /*
-    Empty graph returns null
-     */
-
-  @Test
-  public void testEmpty(){
-    Assertions.assertEquals(0 , testGraph.nodes.size());
+    Graph graph = new Graph();
+    assertEquals(0,graph.size());
+    assertEquals("[]", graph.getVertices().toString());
   }
 }

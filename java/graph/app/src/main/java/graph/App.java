@@ -7,13 +7,32 @@ public class App {
 
 
     public static void main(String[] args) {
-      Graph<String> myGraph = new Graph<>();
-      System.out.println(myGraph.addNode("Hello"));
-      System.out.println(myGraph.addNode("Helklo"));
-      myGraph.addEdge("Hello" , "mor" , 1);
-      System.out.println(myGraph);
-      System.out.println(myGraph.getNodes());
-      System.out.println(myGraph.getNeighbours("Hello"));
+      Graph graph = new Graph();
 
+      graph.addVertex("Hatem");
+      graph.addVertex("Tareq");
+      graph.addVertex("Doaa");
+      graph.addVertex("Mohammad");
+
+      graph.addEdge("Hatem","Tareq");
+      graph.addEdge("Hatem", "Doaa");
+      graph.addEdge("Hatem", "Mohammad");
+      graph.addEdge("Tareq","Doaa");
+      graph.addEdge("Doaa","Mohammad");
+      graph.addEdge("Mohammad", "Tareq");
+
+      System.out.println(graph.printGraph());
+
+
+
+      System.out.println();
+      System.out.println(graph.getVertices());
+
+      System.out.println();
+      System.out.println(graph.getNeighbors("Tareq"));
+
+
+      System.out.println();
+      System.out.println(graph.size());
     }
 }
