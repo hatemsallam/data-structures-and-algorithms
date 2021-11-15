@@ -38,3 +38,22 @@ Create a method that take a vertex as a parameter as a start point and return a 
 * Time: O(n^2)
 
 * Space: O(n)
+
+
+# Graph Business Trip challenge 37
+
+This challenge to check the weight of edge between the connected vertices.
+
+## Challenge
+
+Create a method give us the cost of the trip between cities.
+
+## Whiteboard Process
+
+![graph-business-trip](graph-business-trip.jpg)
+
+## Approach and Efficiency
+
+* Time: O(n^2)
+
+* Space: O(n)

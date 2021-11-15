@@ -2,8 +2,8 @@ package graph;
 
 import java.util.*;
 
+public class Graph {
 
-public class Graph<T> {
   private final Map<Vertex, List<Vertex>> adjVertices;
 
   public Graph() {
@@ -42,13 +42,31 @@ public class Graph<T> {
     return adjVertices.keySet();
   }
 
+  Set<String> depthFirstTraverse(Graph graph, String root) {
+    Set<String> visited = new LinkedHashSet<>();
+    Stack<String> stack = new Stack<>();
+    stack.push(root);
+
+    while (!stack.isEmpty()) {
+      String vertex = stack.pop();
+      if (!visited.contains(vertex)) {
+        visited.add(vertex);
+
+        for (Vertex v : graph.getNeighbors(vertex)) {
+          stack.push(v.data);
+        }
+      }
+    }
+
+    return visited;
+  }
 
 
   public List<Vertex> getNeighbors(String data) {
     return adjVertices.get(new Vertex(data));
   }
 
-  //    <<< Code Challenge 36 >>>
+//    <<< Code Challenge 36 >>>
 
   Set<String> breadthTraverse( String root) {
     Set<String> visited = new LinkedHashSet<>();
@@ -67,6 +85,39 @@ public class Graph<T> {
     return visited;
   }
 
+//    <<< Code Challenge Code 37 >>>
+
+  public void addEdgeWithWeight(String data1, String data2, int weight) {
+    Vertex Vertex1 = new Vertex(data1, weight);
+    Vertex Vertex2 = new Vertex(data2, weight);
 
 
+    adjVertices.get(Vertex1).add(Vertex2);
+    adjVertices.get(Vertex2).add(Vertex1);
+  }
+
+  int totalCost;
+  public Integer businessTrip(Graph graph, List<String> cities){
+    totalCost = 0;
+    int citiesSize = cities.size();
+
+    for (int i = 0; i < citiesSize - 1; i ++){
+
+      findPath(cities.get(i), cities.get(i + 1), graph);
+    }
+
+    return totalCost;
+  }
+
+  private void findPath(String city1, String city2, Graph graph){
+
+    if (graph.getNeighbors(city1) == null){
+      return;
+    }
+    for (Vertex vertex: graph.getNeighbors(city1)) {
+      if (Objects.equals(city2, vertex.data)){
+        totalCost += vertex.weight;
+      }
+    }
+  }
 }
